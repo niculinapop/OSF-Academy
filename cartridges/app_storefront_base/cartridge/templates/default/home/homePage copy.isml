@@ -5,8 +5,6 @@
         assets.addCss('/css/homePage.css');
     </isscript>
 
-    <p>${"My name is Niculina Pop"}</p>
-
     <!-- +1.888.555.0199 -->
     <!--This phone is a requirement to support existing Gomez monitor of SiteGenesis. Demandware customers can remove this.-->
     <div class="home-main homepage">
