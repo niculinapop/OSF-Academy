@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users xmlns="http://www.demandware.com/xml/impex/user/2007-09-05">
+    <user login="niculinapop14@gmail.com" enabled-flag="true">
+        <credentials>
+            <external-id>a078a5ae-a040-42c2-9800-e3bd4157dc90</external-id>
+        </credentials>
+        <profile>
+            <first-name>Niculina</first-name>
+            <last-name>Pop</last-name>
+            <email>niculinapop14@gmail.com</email>
+        </profile>
+    </user>
+
+</users>
