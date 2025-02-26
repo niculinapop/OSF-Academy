@@ -488,6 +488,25 @@ function getProductSearchHit(apiProduct) {
     return hit;
 }
 
+/**
+ * Calculate the percentage discount between the standard price and sale price.
+ * @param {number} standardPrice - The original price of the product.
+ * @param {number} salesPrice - The discounted price of the product.
+ * @returns {number} - The discount percentage or null if the calculation is not applicable.
+ */
+
+// eslint-disable-next-line require-jsdoc
+function calculatePercentageOff(standardPrice, salePrice) {
+    
+    var discountPercentage = 0;
+
+    if (standardPrice && salePrice && standardPrice > salePrice) {
+        discountPercentage = Math.round(((standardPrice - salePrice) / standardPrice) * 100);
+    }
+
+    return discountPercentage;
+}
+
 module.exports = {
     getOptionValues: getOptionValues,
     getOptions: getOptions,
@@ -503,5 +522,6 @@ module.exports = {
     getAllBreadcrumbs: getAllBreadcrumbs,
     getResources: getResources,
     getPageDesignerProductPage: getPageDesignerProductPage,
-    getProductSearchHit: getProductSearchHit
+    getProductSearchHit: getProductSearchHit,
+    calculatePercentageOff: calculatePercentageOff
 };
