@@ -19,7 +19,11 @@
         <isif condition="${pdict.display.ratings !== false}">
             <isinclude template="product/productTileFooter" />
         </isif>
-        <div class="product-test-class"> ${'Test ' + pdict.discountPercentage + ' % OFF'}</div>
+        <isif condition="${!empty(pdict.discountPercentage)}">
+            <div class="discount-percentage">
+                ${Resource.msgf('best.deal.label', 'productTile', null, pdict.discountPercentage)}
+            </div>
+        </isif>
     </div>
     <!-- END_dwmarker -->
 </div>

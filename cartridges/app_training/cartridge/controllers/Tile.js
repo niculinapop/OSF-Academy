@@ -8,10 +8,11 @@ server.append('Show', function (req, res, next) {
   
     var discountPercentage = null;
     var product = res.getViewData().product;
-    if (product && product.price && product.salePrice) { // Verificăm dacă produsul are preț de vânzare
-        discountPercentage = productHelpers.calculatePercentageOff(product.price, product.salePrice);
-    }
 
+    if (product && product.price && product.price.list && product.price.sales) { 
+        discountPercentage = productHelpers.calculatePercentageOff(product.price.list.value, product.price.sales.value);
+    } 
+   
     res.setViewData({ discountPercentage: discountPercentage });
     next(); 
 });
