@@ -20,7 +20,7 @@
             <isinclude template="product/productTileFooter" />
         </isif>
         <isif condition="${!empty(pdict.discountPercentage)}">
-            <div class="discount-percentage">
+            <div class="discount-percentage" style="color: red; font-weight: bold;">
                 ${Resource.msgf('best.deal.label', 'productTile', null, pdict.discountPercentage)}
             </div>
         </isif>
