@@ -1,0 +1,51 @@
+<iscomment>
+  <isslot id="product_carousel_slot" description="Product Carousel Slot" context="global" type="Product" />
+
+  <head>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+
+  </head>
+</iscomment>
+<isdecorate template="common/layout/page">
+  <!-- Define the content slot for the product carousel -->
+  <isslot id="product_carousel_slot" description="Product Carousel Slot" context="global" type="Product" />
+
+  <head>
+    <!-- Include Slick CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css" />
+    <!-- Include jQuery and Slick JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+  </head>
+
+  <body>
+    <div class="product-carousel">
+      <!-- Loop through products -->
+      <isloop items="${products}" var="product">
+        <div>
+          <img src="${product.imageURL}" alt="${product.name}">
+          <h3>${product.name}</h3>
+          <p>${product.price}</p>
+          <a href="${URLUtils.url('Product-Show', 'pid', product.ID)}" class="btn btn-primary">View Product</a>
+        </div>
+      </isloop>
+    </div>
+
+    <script>
+            $(document).ready(function(){
+                $('.product-carousel').slick({
+                    dots: true, // Show navigation dots
+                    infinite: true, // Infinite looping
+                    speed: 300, // Transition speed
+                    slidesToShow: 1, // Number of slides to show
+                    slidesToScroll: 1 // Number of slides to scroll
+                });
+            });
+        </script>
+  </body>
+</isdecorate>
