@@ -1,5 +1,8 @@
 <isinclude template="/components/modules" sf-toolkit="off" />
-
+<isscript>
+var assets = require('*/cartridge/scripts/assets');
+assets.addCss('/css/sizeguide.css');
+</isscript>
 <div class="size-guide-section" style="display: flex; align-items: flex-start; width: 100%;">
   <h2 style="margin-right: 200px">Size Guide</h2>
 
