@@ -1,0 +1,55 @@
+/*!***********************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js!./cartridges/app_storefront_base/cartridge/client/default/scss/experience/storePage.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************/
+body {
+  font-family: "Helvetica Neue";
+}
+
+html {
+  font-size: 0.875rem;
+  font-family: "Helvetica Neue";
+}
+
+@media (min-width: 544px) {
+  html {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 769px) {
+  html {
+    font-size: 1.125rem;
+  }
+}
+h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  font-family: "Helvetica Neue";
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  font-family: "Helvetica Neue";
+}
+
+h3 {
+  font-size: 1.67rem;
+  font-weight: 900;
+  font-family: "Helvetica Neue";
+  text-align: center;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: "Helvetica Neue";
+}
+
+h5 {
+  font-weight: 600;
+  font-family: "Helvetica Neue";
+}
+
+.storepage {
+  width: 100%;
+}
