@@ -1,0 +1,9 @@
+<forms>
+    <form name="paymentForm">
+        <field name="cardNumber" label="Card Number" type="text" mandatory="true" />
+        <field name="expiryMonth" label="Expiration Month" type="text" mandatory="true" />
+        <field name="expiryYear" label="Expiration Year" type="text" mandatory="true" />
+        <field name="securityCode" label="Security Code" type="text" mandatory="true" />
+        <field name="email" label="Email Address" type="email" mandatory="true" />
+    </form>
+</forms>
