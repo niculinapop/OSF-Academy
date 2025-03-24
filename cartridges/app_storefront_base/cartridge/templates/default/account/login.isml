@@ -8,9 +8,10 @@
     <div class="hero slant-down login-banner">
         <h1 class="page-title">${Resource.msg('header.hero.image.login', 'login', null)}</h1>
     </div>
+    <isinclude template="ajaxModal" />
     <div class="container login-page">
         <!---Breadcrumbs--->
-        <isinclude template="components/breadcrumbs/pageBreadcrumbs"/>
+        <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
         <div class="row justify-content-center equal-height">
             <div class="col-sm-8 col-md-6">
                 <div class="card">
@@ -18,12 +19,14 @@
                         <div class="login-form-nav">
                             <isinclude template="account/components/navTabs" />
                             <div class="tab-content">
-                                <div class="tab-pane ${pdict.navTabValue === 'login' ? 'active' : ''}" id="login" role="tabpanel" aria-labelledby="login-tab">
+                                <div class="tab-pane ${pdict.navTabValue === 'login' ? 'active' : ''}" id="login"
+                                    role="tabpanel" aria-labelledby="login-tab">
                                     <isinclude template="account/components/loginForm" />
-                                    <isinclude template="account/password/requestPasswordResetModal"/>
+                                    <isinclude template="account/password/requestPasswordResetModal" />
                                     <isinclude template="account/components/oauth" />
                                 </div>
-                                <div class="tab-pane ${pdict.navTabValue === "register" ? 'active' : ''}" id="register" role="tabpanel" aria-labelledby="register-tab">
+                                <div class="tab-pane ${pdict.navTabValue === " register" ? 'active' : ''}"
+                                    id="register" role="tabpanel" aria-labelledby="register-tab">
                                     <isinclude template="account/components/registerForm" />
                                 </div>
                             </div>
