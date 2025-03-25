@@ -1,0 +1,29 @@
+{
+  "name": "Custom Banner",
+  "group": "content",
+  "description": "A clickable banner that links to a specified category.",
+  "attribute_definition_groups": [
+      {
+          "id": "banner_attributes",
+          "name": "Banner Attributes",
+          "description": "Attributes for configuring the banner",
+          "attribute_definitions": [
+              {
+                  "id": "image",
+                  "name": "Banner Image",
+                  "description": "The image to display in the banner",
+                  "type": "image",
+                  "required": true
+              },
+              {
+                  "id": "category",
+                  "name": "Category",
+                  "description": "The category to link to",
+                  "type": "category",
+                  "required": true
+              }
+          ]
+      }
+  ],
+  "region_definitions": []
+} 

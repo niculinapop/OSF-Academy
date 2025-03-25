@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 'use strict';
 
 /**
@@ -144,6 +146,14 @@ server.get('ShowAjax', cache.applyShortPromotionSensitiveCache, consentTracking.
  * @param {serverfunction} - get
  */
 server.get('Show', cache.applyShortPromotionSensitiveCache, consentTracking.consent, function (req, res, next) {
+    var PageMgr = require('dw/experience/PageMgr');
+    var category = CatalogMgr.getCategory(catId);
+    var pageDesignerID = (category && 'pageDesignerPageID' in category.custom) ? category.custom.pageDesignerPageID : null;
+    var pageDesigner = pageDesignerID ? PageMgr.getPage(pageDesignerID) : null;
+
+    if (pageDesigner && pageDesigner.isVisible()) {
+        return response.writer.println(PageMgr.renderPage(pageDesigner.ID, ''));
+    } 
     var searchHelper = require('*/cartridge/scripts/helpers/searchHelpers');
 
     if (req.querystring.cgid) {
