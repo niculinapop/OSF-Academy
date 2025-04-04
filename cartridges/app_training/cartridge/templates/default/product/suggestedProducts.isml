@@ -1,0 +1,19 @@
+<isif condition="${!empty(pdict.suggestedProducts)}">
+  <div class="suggested-products">
+    <div class="row">
+      <isloop items="${pdict.suggestedProducts}" var="suggestedProduct">
+        <div class="col-3">
+          <div class="product-summary">
+            ${JSON.stringify(suggestedProduct)}
+            <a href="${suggestedProduct.URL}">
+              <img src="${suggestedProduct.image}" alt="${suggestedProduct.name}" />
+              <h4>${suggestedProduct.name}</h4>
+              <p>${suggestedProduct.ID}</p>
+            </a>
+          </div>
+        </div>
+      </isloop>
+      ${JSON.stringify(pdict.suggestedProducts[0])}
+    </div>
+  </div>
+</isif>
