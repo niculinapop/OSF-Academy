@@ -1,0 +1,13 @@
+<!-- Custom Message Section -->
+<isinclude template="/components/modules" sf-toolkit="off" />
+<iscontentasset aid="cartTotalThreshold" />
+<isif condition="${!empty(pdict.customMessage)}">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-7 col-md-8">
+        <div class="custom-message">
+        </div>
+      </div>
+    </div>
+  </div>
+</isif>

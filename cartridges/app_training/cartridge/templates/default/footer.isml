@@ -1,0 +1,70 @@
+<isinclude template="/components/modules" sf-toolkit="off" />
+<iscontent type="text/html" charset="UTF-8" compact="true" />
+
+<link rel="stylesheet" href="${URLUtils.staticURL('/css/globalFooter.css')}" type="text/css" />
+
+<footer class="global-footer">
+  <!-- Section 1:  -->
+  <section class="footer-benefits">
+    <iscontentasset aid="footer-benefits-title" />
+
+    <div class="benefits-columns">
+      <!-- Column 1 -->
+      <div class="benefit-column">
+        <iscontentasset aid="benefit-column-subtitle" />
+        <iscontentasset aid="benefit-column-text" />
+      </div>
+      <!-- Column  2 -->
+      <div class="benefit-column">
+        <iscontentasset aid="benefit-column-subtitle" />
+        <iscontentasset aid="benefit-column-text" />
+      </div>
+      <!-- Column  3 -->
+      <div class="benefit-column">
+        <iscontentasset aid="benefit-column-subtitle" />
+        <iscontentasset aid="benefit-column-text" />
+      </div>
+      <!--Column  4 -->
+      <div class="benefit-column">
+        <iscontentasset aid="benefit-column-subtitle" />
+        <iscontentasset aid="benefit-column-text" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Trusted Shops, Payment Methods, Shipping Services -->
+  <section class="footer-middle">
+    <div class="trusted-shops">
+      <iscontentasset aid="trusted-shops-title" />
+    </div>
+    <div class="payment-methods">
+      <iscontentasset aid="payment-methods" />
+    </div>
+    <div class="shipping-services">
+      <iscontentasset aid="shipping-services" />
+    </div>
+  </section>
+
+  <!-- Section 3: Customer Service, About, Account -->
+  <section class="footer-bottom">
+    <div class="customer-service">
+      <iscontentasset aid="customer-service" />
+    </div>
+    <div class="about">
+      <iscontentasset aid="about" />
+    </div>
+    <div class="account">
+      <iscontentasset aid="account" />
+    </div>
+  </section>
+
+  <!-- Section 3.5: Textul Lorem Ipsum -->
+  <div class="footer-lorem">
+    <iscontentasset aid="footer-lorem-text" />
+  </div>
+
+  <!-- Section 4: Footer Note -->
+  <div class="footer-note">
+    <iscontentasset aid="footer-note" />
+  </div>
+</footer>

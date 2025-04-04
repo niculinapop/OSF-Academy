@@ -1,0 +1,92 @@
+<isml>
+  <iscontent type="text/html" charset="UTF-8" compact="true" />
+
+  <style>
+    .required {
+      color: red;
+    }
+  </style>
+
+  <form action="${URLUtils.url('PaymentInstruments-SavePayment')}" method="POST" class="payment-form">
+    <!-- Hidden CSRF token -->
+    <input type="hidden" name="csrf_token" value="${CSRFToken('csrf_token')}" />
+
+    <!-- Card Number -->
+    <div class="form-group">
+      <label for="cardNumber">${Resource.msg('label.input.creditcard.number', 'forms', null)} <span
+          class="required">*</span></label>
+      <input type="text" class="form-control" id="cardNumber" name="cardNumber"
+        value="${pdict.paymentForm.cardNumber.value || ''}" required />
+      <isif condition="${pdict.paymentForm.cardNumber.error}">
+        <span class="error">${pdict.paymentForm.cardNumber.error}</span>
+      </isif>
+    </div>
+
+    <!-- Expiration Month and Year (Two-Column Layout) -->
+    <div class="row">
+      <div class="col-md-6 form-group">
+        <label for="expirationMonth">${Resource.msg('label.input.payment.expirationmonth', 'forms', null)} <span
+            class="required">*</span></label>
+        <select class="form-control" id="expirationMonth" name="expirationMonth" required>
+          <option value="">${Resource.msg('select.default.month', 'forms', null)}</option>
+          <isloop items="${pdict.paymentForm.expirationMonth.options}" var="option">
+            <option value="${option.value}" ${option.selected ? 'selected' : ''}>
+              ${option.displayValue}
+            </option>
+          </isloop>
+        </select>
+        <isif condition="${pdict.paymentForm.expirationMonth.error}">
+          <span class="error">${pdict.paymentForm.expirationMonth.error}</span>
+        </isif>
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="expirationYear">${Resource.msg('label.input.payment.expirationyear', 'forms', null)} <span
+            class="required">*</span></label>
+        <select class="form-control" id="expirationYear" name="expirationYear" required>
+          <option value="">${Resource.msg('select.default.year', 'forms', null)}</option>
+          <isloop items="${pdict.expirationYears}" var="year">
+            <option value="${year}" ${pdict.paymentForm.expirationYear.value == year ? 'selected' : ''}>
+              ${year}
+            </option>
+          </isloop>
+        </select>
+        <isif condition="${pdict.paymentForm.expirationYear.error}">
+          <span class="error">${pdict.paymentForm.expirationYear.error}</span>
+        </isif>
+      </div>
+    </div>
+
+    <!-- Security Code and Email (Two-Column Layout) -->
+    <div class="row">
+      <div class="col-md-6 form-group">
+        <label for="securityCode">${Resource.msg('label.input.securitycode', 'forms', null)} <span
+            class="required">*</span></label>
+        <input type="text" class="form-control" id="securityCode" name="securityCode"
+          value="${pdict.paymentForm.securityCode.value || ''}" required />
+        <isif condition="${pdict.paymentForm.securityCode.error}">
+          <span class="error">${pdict.paymentForm.securityCode.error}</span>
+        </isif>
+      </div>
+      <div class="col-md-6 form-group">
+        <label for="email">${Resource.msg('label.input.email.profile', 'forms', null)} <span
+            class="required">*</span></label>
+        <input type="email" class="form-control" id="email" name="email" value="${pdict.paymentForm.email.value || ''}"
+          required />
+        <isif condition="${pdict.paymentForm.email.error}">
+          <span class="error">${pdict.paymentForm.email.error}</span>
+        </isif>
+      </div>
+    </div>
+
+    <!-- Save Card to Account -->
+    <div class="form-group">
+      <label>
+        <input type="checkbox" name="saveCard" ${pdict.paymentForm.saveCard.value ? 'checked' : ''} />
+        ${Resource.msg('label.save.card', 'forms', null)}
+      </label>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" name="save" value="save" class="btn btn-primary" style="width: 100%">Save</button>
+  </form>
+</isml>
