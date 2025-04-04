@@ -1,8 +1,8 @@
 <isdecorate template="common/layout/page">
     <isscript>
-        var assets = require('*/cartridge/scripts/assets.js');
+        var assets = require('*/cartridge/scripts/assets');
         assets.addJs('/js/productTile.js');
-        assets.addCss('/css/homePage.css');
+        assets.addCss('/css/homePage.css'); 
     </isscript>
 
     <!-- Include the homepage banner -->
@@ -49,4 +49,5 @@
             </form>
         </div>
     </div>
+
 </isdecorate>
