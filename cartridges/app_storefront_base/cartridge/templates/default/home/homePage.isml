@@ -1,8 +1,8 @@
 <isdecorate template="common/layout/page">
     <isscript>
-        var assets = require('*/cartridge/scripts/assets.js');
+        var assets = require('*/cartridge/scripts/assets');
         assets.addJs('/js/productTile.js');
-        assets.addCss('/css/homePage.css');
+        assets.addCss('/css/homePage.css'); 
     </isscript>
 
     <!-- +1.888.555.0199 -->
@@ -46,4 +46,5 @@
             </form>
         </div>
     </div>
+
 </isdecorate>

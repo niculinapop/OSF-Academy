@@ -1,0 +1,45 @@
+/* productCarousel.css */
+
+/* Asigură-te că caruselul ocupă întreaga lățime disponibilă */
+.product-carousel {
+  width: 100%;
+  margin: 0 auto; /* Centrează caruselul pe pagină */
+  padding: 20px 0; /* Adaugă spațiu pe verticală */
+}
+
+/* Asigură-te că caruselul este vizibil și are dimensiuni corecte */
+.slick-carousel {
+  display: flex; /* Folosește flexbox pentru a alinia corect slide-urile */
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+/* Stiluri pentru elementele individuale ale caruselului (slide-urile) */
+.slick-carousel .slick-slide {
+  display: inline-block; /* Fiecare slide va fi un bloc inline */
+  width: 100%; /* Fiecare slide va ocupa lățimea completă */
+  padding: 0 10px; /* Adaugă spațiu între slide-uri */
+}
+
+/* Stiluri pentru elementele din slide-uri */
+.slick-carousel .slick-slide img {
+  max-width: 100%; /* Asigură-te că imaginile nu depășesc limitele slide-urilor */
+  height: auto;
+  border-radius: 10px; /* Colțuri rotunjite pentru imagini */
+}
+
+/* Stiluri pentru slick dots (paginarea) */
+.slick-carousel .slick-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.slick-carousel .slick-dots li button {
+  background-color: #fff;
+  border: none;
+  height: 10px;
+  width: 10px;
+}

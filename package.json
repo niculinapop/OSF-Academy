@@ -91,7 +91,8 @@
     "cleave.js": "^1.5.3",
     "flag-icons": "7.1.0",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.5.1"
+    "jquery": "^3.5.1",
+    "slick-carousel": "^1.8.1"
   },
   "browserslist": [
     "last 2 versions",
