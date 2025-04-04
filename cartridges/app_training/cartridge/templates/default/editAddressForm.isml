@@ -1,0 +1,154 @@
+<isml>
+  <iscontent type="text/html" charset="UTF-8" compact="true" />
+
+  <form action="${URLUtils.url('Address-SaveAddress')}" method="POST" class="address-form">
+    <!-- Hidden fields for shipmentUUID and productLineItemUUID -->
+    <input type="hidden" name="shipmentUUID" value="${pdict.addressForm.shipmentUUID.value}" />
+    <input type="hidden" name="productLineItemUUID" value="${pdict.addressForm.productLineItemUUID.value}" />
+
+    <!-- Shipping Address Fields -->
+    <fieldset>
+
+      <!-- First Name -->
+      <div class="form-group">
+        <label for="firstName">${Resource.msg('label.input.firstname.profile', 'forms', null)} <span class="required"
+            style="color:red">*</span></label>
+        <input type="text" class="form-control" id="firstName" name="shippingAddress.firstName"
+          value="${pdict.addressForm.shippingAddress.firstName.value || ''}" maxlength="50" required />
+        <isif condition="${pdict.addressForm.shippingAddress.firstName.error}">
+          <span class="error">${pdict.addressForm.shippingAddress.firstName.error}</span>
+        </isif>
+      </div>
+
+      <!-- Last Name -->
+      <div class="form-group">
+        <label for="lastName">${Resource.msg('label.input.lastname.profile', 'forms', null)} <span class="required"
+            style="color:red">*</span></label>
+        <input type="text" class="form-control" id="lastName" name="shippingAddress.lastName"
+          value="${pdict.addressForm.shippingAddress.lastName.value}" maxlength="50" required />
+        <isif condition="${pdict.addressForm.shippingAddress.lastName.error}">
+          <span class="error">${pdict.addressForm.shippingAddress.lastName.error}</span>
+        </isif>
+      </div>
+
+      <!-- Address 1 -->
+      <div class="form-group">
+        <label for="address1">${Resource.msg('label.input.address1', 'forms', null)} <span class="required"
+            style="color:red">*</span></label>
+        <input type="text" class="form-control" id="address1" name="shippingAddress.address1"
+          value="${pdict.addressForm.shippingAddress.address1.value}" required />
+        <isif condition="${pdict.addressForm.shippingAddress.address1.error}">
+          <span class="error">${pdict.addressForm.shippingAddress.address1.error}</span>
+        </isif>
+      </div>
+
+      <!-- Address 2 -->
+      <div class="form-group">
+        <label for="address2">${Resource.msg('label.input.address2', 'forms', null)}</label>
+        <input type="text" class="form-control" id="address2" name="shippingAddress.address2"
+          value="${pdict.addressForm.shippingAddress.address2.value}" />
+      </div>
+
+      <!-- Country -->
+      <div class="form-group">
+        <label for="country">${Resource.msg('label.input.country', 'forms', null)} <span class="required"
+            style="color:red">*</span></label>
+        <select class="form-control" id="country" name="shippingAddress.country" required>
+          <option value="">${Resource.msg('resource.select', 'forms', null)}</option>
+          <option value="US" ${pdict.addressForm.shippingAddress.country.value == 'US' ? 'selected' : ''}>
+            ${Resource.msg('select.option.country.unitedstates', 'forms', null)}
+          </option>
+          <!-- Add more countries as needed -->
+        </select>
+        <isif condition="${pdict.addressForm.shippingAddress.country.error}">
+          <span class="error">${pdict.addressForm.shippingAddress.country.error}</span>
+        </isif>
+      </div>
+
+      <!-- State -->
+      <div class="form-group">
+        <label for="state">${Resource.msg('label.input.state', 'forms', null)} <span class="required"
+            style="color:red">*</span></label>
+        <select class="form-control" id="state" name="shippingAddress.state" required>
+          <option value="">${Resource.msg('resource.select', 'forms', null)}</option>
+
+          <!-- Use a scriptlet to dynamically fetch all state.us.* keys -->
+          <isscript>
+            var Resource = require('dw/web/Resource');
+            var states = [];
+            
+            // List of state keys (we'll dynamically generate this)
+            var stateKeys = [
+                'alabama', 'alaska', 'americansamoa', 'arizona', 'arkansas', 'california', 'colorado',
+                'connecticut', 'delaware', 'dc', 'florida', 'georgia', 'guam', 'hawaii', 'idaho',
+                'illinois', 'indiana', 'iowa', 'kansas', 'kentucky', 'louisiana', 'maine', 'maryland',
+                'massachusetts', 'michigan', 'minnesota', 'mississippi', 'missouri', 'montana', 'nebraska',
+                'nevada', 'newhampshire', 'newjersey', 'newmexico', 'newyork', 'northcarolina', 'northdakota',
+                'ohio', 'oklahoma', 'oregon', 'pennsylvania', 'puertorico', 'rhodeisland', 'southcarolina',
+                'southdakota', 'tennessee', 'texas', 'utah', 'vermont', 'virginislands', 'virginia',
+                'washington', 'westvirginia', 'wisconsin', 'wyoming', 'armedforcesafrica', 'armedforcesamerica',
+                'armedforcescanada', 'armedforceseurope', 'armedforcesmiddleeast', 'armedforcespacific', 'other'
+            ];
+
+            // Map each key to an object with key and value
+            stateKeys.forEach(function(key) {
+                var stateValue = Resource.msg('state.us.' + key, 'forms', null);
+                if (stateValue) {
+                    states.push({ key: key, value: stateValue });
+                }
+            });
+
+            // Make the states array available to the ISML context
+            pdict.states = states;
+        </isscript>
+
+          <!-- Loop through the states array -->
+          <isloop items="${pdict.states}" var="state">
+            <option value="${state.key}" ${pdict.addressForm.shippingAddress.state.value == state.value ? 'selected' : ''}>
+              ${state.value}
+            </option>
+          </isloop>
+        </select>
+        <isif condition="${pdict.addressForm.shippingAddress.state.error}">
+          <span class="error">${pdict.addressForm.shippingAddress.state.error}</span>
+        </isif>
+      </div>
+
+      <!-- ZIP Code -->
+      <div class="form-group">
+        <label for="zipcode">${Resource.msg('label.input.zipcode', 'forms', null)} <span class="required"
+            style="color:red">*</span></label>
+        <input type="text" class="form-control" id="zipcode" name="shippingAddress.zipcode"
+          value="${pdict.addressForm.shippingAddress.zipcode.value || ''}" required />
+        <small class="form-text text-muted">${Resource.msg('example.postalcode', 'forms', null)}</small>
+        <isif condition="${pdict.addressForm.shippingAddress.zipcode.error}">
+          <span class="error">${pdict.addressForm.shippingAddress.zipcode.error}</span>
+        </isif>
+      </div>
+
+      <!-- Phone Number -->
+      <div class="form-group">
+        <label for="phone">${Resource.msg('label.input.phonenumber', 'forms', null)} <span class="required"
+            style="color:red">*</span></label>
+        <input type="text" class="form-control" id="phone" name="shippingAddress.phone"
+          value="${pdict.addressForm.shippingAddress.phone.value || ''}" required />
+        <small class="form-text text-muted">${Resource.msg('example.phone', 'forms', null)}</small>
+        <isif condition="${pdict.addressForm.shippingAddress.phone.error}">
+          <span class="error">${pdict.addressForm.shippingAddress.phone.error}</span>
+        </isif>
+      </div>
+
+      <!-- Use as Billing Address -->
+
+
+      <!-- Gift Options -->
+
+
+      <div class="form-group">
+        <label for="comments">${Resource.msg('label.input.comments', 'forms', null)}</label>
+        <textarea class="form-control" id="comments" name="shippingAddress.comments"
+          maxlength="250">${pdict.addressForm.shippingAddress.giftMessage.value}</textarea>
+      </div>
+    </fieldset>
+  </form>
+</isml>

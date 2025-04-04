@@ -1,6 +1,25 @@
 <div class="product-tile">
     <!-- dwMarker="product" dwContentID="${product.uuid}" -->
     <isinclude template="product/components/productTileImage" />
+
+    <!-- Add the CSS file -->
+    <link rel="stylesheet" href="${URLUtils.staticURL('/css/categoryBadge.css')}" />
+
+    <!-- Fetch the badge data from the Custom Object -->
+    <isscript>
+        var CustomObjectMgr = require('dw/object/CustomObjectMgr');
+        var categoryID = request.httpParameterMap.cgid.stringValue || 'womens-clothing'; // Fallback to 'womens-clothing' if cgid is not available
+        var badge = CustomObjectMgr.getCustomObject('CategoryBadge', categoryID);
+    </isscript>
+
+    <!-- Display the badge -->
+    <isif condition="${badge != null}">
+        <div class="category-badge" style="background-color: ${badge.custom.badgeBackgroundColor || '#FF0000'};
+                    color: ${badge.custom.badgeTextColor || '#FFFFFF'};">
+            ${badge.custom.badgeText || 'Default Badge'}
+        </div>
+    </isif>
+
     <div class="tile-body">
         <isif condition="${pdict.display.swatches !== false}">
             <isinclude template="product/components/productTileSwatch" />
@@ -13,12 +32,17 @@
             <isinclude template="product/components/pricing/setPrice" />
             <iselse>
                 <isinclude template="product/components/pricing/main" />
+            </iselse>
         </isif>
 
         <isif condition="${pdict.display.ratings !== false}">
             <isinclude template="product/productTileFooter" />
         </isif>
-        <div class="product-test-class"></div>
+        <isif condition="${!empty(pdict.discountPercentage)}">
+            <div class="discount-percentage" style="color: red; font-weight: bold;">
+                ${Resource.msgf('best.deal.label', 'productTile', null, pdict.discountPercentage)}
+            </div>
+        </isif>
     </div>
     <!-- END_dwmarker -->
 </div>
