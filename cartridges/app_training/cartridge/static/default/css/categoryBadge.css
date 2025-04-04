@@ -1,0 +1,22 @@
+
+.product-tile {
+  position: relative;
+}
+
+.category-badge {
+  position: absolute; 
+  top: -5px; 
+  left: -5px; 
+  z-index: 10;
+  padding: 5px 10px;
+  border-radius: 40px;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  width: 80px; 
+  height: 80px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.2;
+}

@@ -11,7 +11,7 @@
     assets.addJs('/static/default/js/slick.min.js');
     assets.addCss('/static/default/css/slick.css'); 
     assets.addCss('/static/default/css/slick-theme.css');  
-    assets.addJs('/js/ProductCarousel.js');  
+    assets.addJs('/scripts/productCarousel.js'); 
 </isscript>
 
 
