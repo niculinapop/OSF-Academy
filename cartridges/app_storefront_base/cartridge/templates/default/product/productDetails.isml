@@ -142,6 +142,13 @@
                                            count: 1}}" scope="page" />
             <isinclude template="product/components/descriptionAndDetails" />
 
+            <!-- Include the Size Guide Table after Details -->
+            <div class="row">
+                <div class="col-12">
+                    <isinclude template="sizeGuideTable" />
+                </div>
+            </div>
+
             <div class="recommendations">
                 <isslot id="product-recommendations-m" description="Recommended products" context="global"
                     context-object="${pdict.product.raw}" />
