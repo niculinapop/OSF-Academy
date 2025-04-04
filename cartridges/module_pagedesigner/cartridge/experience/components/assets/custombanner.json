@@ -1,6 +1,6 @@
 {
   "name": "Custom Banner",
-  "group": "content",
+  "group": "assets",
   "description": "A clickable banner that links to a specified category.",
   "attribute_definition_groups": [
       {
