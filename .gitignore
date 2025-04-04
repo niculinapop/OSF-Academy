@@ -1,4 +1,5 @@
 node_modules/
+cartridges/*/cartridge/static/ 
 
 coverage/
 npm-debug.log
