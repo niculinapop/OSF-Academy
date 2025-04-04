@@ -1,14 +1,21 @@
+<isinclude template="/components/modules" sf-toolkit="off" />
 <isdecorate template="common/layout/page">
     <isscript>
         var assets = require('*/cartridge/scripts/assets.js');
         assets.addCss('/css/login.css');
         assets.addJs('/js/login.js');
+        assets.addJs('/js/custom.js');
     </isscript>
 
     <div class="hero slant-down login-banner">
         <h1 class="page-title">${Resource.msg('header.hero.image.login', 'login', null)}</h1>
     </div>
-    <isinclude template="ajaxModal" />
+
+    <iscontentasset aid="returning-customers-color" />
+    <iscontentasset aid="returning-customers-bw" />
+    <iscontentasset aid="check-your-order-color" />
+    <iscontentasset aid="check-your-order-bw" />
+
     <div class="container login-page">
         <!---Breadcrumbs--->
         <isinclude template="components/breadcrumbs/pageBreadcrumbs" />
