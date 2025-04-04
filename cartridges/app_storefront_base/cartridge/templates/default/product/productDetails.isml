@@ -154,5 +154,6 @@
                     context-object="${pdict.product.raw}" />
             </div>
         </div>
+        <isinclude template="product/suggestedProducts" />
     </isobject>
 </isdecorate>
